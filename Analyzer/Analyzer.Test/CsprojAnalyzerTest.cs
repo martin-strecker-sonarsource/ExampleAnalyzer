@@ -29,6 +29,7 @@ namespace Analyzer.Test
                 			<PrivateAssets>all</PrivateAssets>
                 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
                 		</PackageReference>
+                        <PackageReference Include="Flurl" Version="3.0.6-pre1" />
                 	</ItemGroup>
                 </Project>
                 """)));
@@ -36,6 +37,9 @@ namespace Analyzer.Test
             v.ExpectedDiagnostics.Add(new DiagnosticResult(CsprojAnalyzer.DiagnosticId, DiagnosticSeverity.Warning)
                 .WithSpan("Test.csproj", 9, 4, 9, 20)
                 .WithArguments("Analyzer", "1.17.0"));
+            v.ExpectedDiagnostics.Add(new DiagnosticResult(CsprojAnalyzer.DiagnosticId, DiagnosticSeverity.Warning)
+                .WithSpan("Test.csproj", 13, 10, 13, 26)
+                .WithArguments("Flurl", "3.0.6-pre1"));
             await v.RunAsync();
         }
     }
