@@ -15,7 +15,7 @@ namespace Analyzer
     {
         public const string DiagnosticId = "MS001";
 
-        private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId, "Title", "MessageFormat", category: "Naming", DiagnosticSeverity.Warning, isEnabledByDefault: true, description: "Description.");
+        private static readonly DiagnosticDescriptor Rule = new(DiagnosticId, "Title", "MessageFormat", category: "Naming", DiagnosticSeverity.Warning, isEnabledByDefault: true, description: "Some Description.");
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get { return ImmutableArray.Create(Rule); } }
 

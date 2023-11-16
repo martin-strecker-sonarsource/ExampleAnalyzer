@@ -9,7 +9,7 @@
 
   <PropertyGroup>
     <PackageId>Analyzer</PackageId>
-    <PackageVersion>1.0.0.0</PackageVersion>
+    <PackageVersion>1.24.0.0</PackageVersion>
     <Authors>martin.strecker</Authors>
     <PackageLicenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</PackageLicenseUrl>
     <PackageProjectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</PackageProjectUrl>
@@ -33,6 +33,7 @@
 
   <ItemGroup>
     <None Update="tools\*.ps1" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="" />
+	<None Update="Analyzer.targets" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="build" />
   </ItemGroup>
 
   <Target Name="_AddAnalyzersToOutput">
@@ -41,5 +42,4 @@
       <TfmSpecificPackageFile Include="$(OutputPath)\Analyzer.CodeFixes.dll" PackagePath="analyzers/dotnet/cs" />
     </ItemGroup>
   </Target>
-
 </Project>

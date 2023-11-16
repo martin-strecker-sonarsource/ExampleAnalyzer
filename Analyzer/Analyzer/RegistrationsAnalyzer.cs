@@ -9,6 +9,7 @@ using System.Collections.Concurrent;
 using System.Xml;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Linq;
+using System.Diagnostics;
 
 namespace Analyzer
 {
@@ -17,10 +18,10 @@ namespace Analyzer
     {
         public const string DiagnosticId = "MS002";
 
-        private static readonly DiagnosticDescriptor Rule = new DiagnosticDescriptor(DiagnosticId,
+        private static readonly DiagnosticDescriptor Rule = new(DiagnosticId,
             "The string builder passed in the this parameter should be returned",
             "The returned value is not the parameter passed via the this parameter",
-            category: "Naming", DiagnosticSeverity.Warning, isEnabledByDefault: true, description: "Description.");
+            category: "Naming", DiagnosticSeverity.Warning, isEnabledByDefault: true, description: "Some other Description.");
 
         public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get { return ImmutableArray.Create(Rule); } }
 
